@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.nlpc06.tabview.DialogFragment.UploadImageDialog;
 import com.example.nlpc06.tabview.R;
 
 import java.io.File;
@@ -68,8 +69,11 @@ public class DoctorFragment extends Fragment implements OnClickListener {
     @Override
     public void onClick(View v) {
 
-        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,CAMERA_REQ);
+        /*Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent,CAMERA_REQ);*/
+
+        UploadImageDialog uploadImageDialog = new UploadImageDialog();
+        uploadImageDialog.show(getFragmentManager(),"YYY");
 
     }
 
