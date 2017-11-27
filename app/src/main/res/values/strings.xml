@@ -6,8 +6,9 @@
     <string name="selection_option">Selection Option</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
+    <string name="select_cabin">Select Cabin</string>
     <string-array name="name_arrry">
-    <item>Single</item>
-    <item>Double</item>
+        <item>Single</item>
+        <item>Double</item>
     </string-array>
 </resources>

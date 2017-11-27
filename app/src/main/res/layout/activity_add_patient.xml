@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_padding"
+    tools:context="com.example.nlpc06.tabview.Activities.AddPatientActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Patient Name"
+        android:id="@+id/et_name"/>
+
+    <EditText
+        android:layout_marginTop="@dimen/default_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_name"
+        android:inputType="number"
+        android:hint="Enter Patient Age"
+        android:id="@+id/et_age"/>
+
+    <EditText
+        android:layout_marginTop="@dimen/default_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_age"
+        android:hint="Enter Patient Address"
+        android:id="@+id/et_address"/>
+
+    <EditText
+        android:layout_marginTop="@dimen/default_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_address"
+        android:inputType="phone"
+        android:hint="Enter Patient Contact Number"
+        android:id="@+id/et_contact"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_contact"
+        android:padding="@dimen/default_padding"
+        android:id="@+id/container"
+        android:layout_marginTop="@dimen/default_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/large_text_size"
+            android:text="@string/select_cabin"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"/>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/sp_select_cabin">
+
+        </Spinner>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/btn_add"
+        android:layout_below="@+id/container"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+</RelativeLayout>
