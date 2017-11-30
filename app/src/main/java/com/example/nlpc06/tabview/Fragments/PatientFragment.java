@@ -6,13 +6,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.nlpc06.tabview.Activities.AddPatientActivity;
+import com.example.nlpc06.tabview.Adater.PatientAdapter;
 import com.example.nlpc06.tabview.Model.Patient;
 import com.example.nlpc06.tabview.R;
 
@@ -29,6 +32,8 @@ public class PatientFragment extends Fragment implements View.OnClickListener{
     private FloatingActionButton fabAdd;
     private RecyclerView rvPatient;
 
+    private PatientAdapter adapter;
+
 
     public PatientFragment() {
         // Required empty public constructor
@@ -39,6 +44,8 @@ public class PatientFragment extends Fragment implements View.OnClickListener{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        adapter = new PatientAdapter(getContext());
+
         Realm realm = Realm.getDefaultInstance();
 
         realm.executeTransaction(new Realm.Transaction() {
@@ -46,9 +53,15 @@ public class PatientFragment extends Fragment implements View.OnClickListener{
             public void execute(Realm realm) {
                 RealmResults<Patient> patList = realm.where(Patient.class).findAll();
 
-                Log.d("LLLL",patList.get(0).getName());
+                Toast.makeText(getContext(), patList.size()+"", Toast.LENGTH_SHORT).show();
+
+                for (Patient x: patList){
+                    adapter.addPatient(x);
+                }
+
+               /* Log.d("LLLL",patList.get(0).getName());
                 Log.d("LLLL",patList.get(0).getAddress());
-                Log.d("LLLL",patList.get(0).getContact_number());
+                Log.d("LLLL",patList.get(0).getContact_number());*/
             }
         });
     }
@@ -65,6 +78,8 @@ public class PatientFragment extends Fragment implements View.OnClickListener{
     private void initView(View view) {
         fabAdd = view.findViewById(R.id.button);
         rvPatient = view.findViewById(R.id.rv_patient);
+        rvPatient.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvPatient.setAdapter(adapter);
 
         fabAdd.setOnClickListener(this);
     }

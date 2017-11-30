@@ -7,74 +7,110 @@
     android:padding="@dimen/default_padding"
     tools:context="com.example.nlpc06.tabview.Activities.AddPatientActivity">
 
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Patient Name"
-        android:id="@+id/et_name"/>
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_marginTop="@dimen/default_padding"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_name"
-        android:inputType="number"
-        android:hint="Enter Patient Age"
-        android:id="@+id/et_age"/>
-
-    <EditText
-        android:layout_marginTop="@dimen/default_padding"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_age"
-        android:hint="Enter Patient Address"
-        android:id="@+id/et_address"/>
-
-    <EditText
-        android:layout_marginTop="@dimen/default_padding"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_address"
-        android:inputType="phone"
-        android:hint="Enter Patient Contact Number"
-        android:id="@+id/et_contact"/>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_contact"
-        android:padding="@dimen/default_padding"
-        android:id="@+id/container"
-        android:layout_marginTop="@dimen/default_padding">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/large_text_size"
-            android:text="@string/select_cabin"
-            android:layout_gravity="center_vertical"
-            android:textStyle="bold"/>
-
-
-        <Spinner
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/sp_select_cabin">
+            android:layout_height="wrap_content">
 
-        </Spinner>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_size"
+                android:padding="@dimen/default_padding"
+                android:id="@+id/image_container">
 
-    </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/image_size"
+                    android:layout_height="@dimen/image_size"
+                    android:id="@+id/image"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="select"
+                    android:id="@+id/btn_select"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Patient Name"
+                android:layout_below="@+id/image_container"
+                android:id="@+id/et_name"/>
+
+            <EditText
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_name"
+                android:inputType="number"
+                android:hint="Enter Patient Age"
+                android:id="@+id/et_age"/>
+
+            <EditText
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_age"
+                android:hint="Enter Patient Address"
+                android:id="@+id/et_address"/>
+
+            <EditText
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_address"
+                android:inputType="phone"
+                android:hint="Enter Patient Contact Number"
+                android:id="@+id/et_contact"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_contact"
+                android:padding="@dimen/default_padding"
+                android:id="@+id/container"
+                android:layout_marginTop="@dimen/default_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/large_text_size"
+                    android:text="@string/select_cabin"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"/>
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        android:id="@+id/btn_add"
-        android:layout_below="@+id/container"
-        android:layout_marginTop="10dp"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_select_cabin">
+
+                </Spinner>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:id="@+id/btn_add"
+                android:layout_below="@+id/container"
+                android:layout_marginTop="10dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
 
 
 

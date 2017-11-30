@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rect"
+    android:layout_marginBottom="4dp">
+
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="4dp"
+        android:id="@+id/iv_image"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_image">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:padding="8dp"
+            android:id="@+id/tv_patient_name"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_below="@+id/tv_patient_name"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/patient_phone_number"
+            android:textSize="24sp"
+            android:padding="8dp"
+            android:textStyle="bold"/>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/container">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cabin Name: "
+                android:textSize="24sp"
+                android:padding="8dp"
+                android:textStyle="bold"/>
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/container"
+            android:id="@+id/sec_cont">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:padding="8dp"
+                android:id="@+id/tv_cabin_type"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sec_cont">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cabin Utility: "
+                android:textSize="24sp"
+                android:padding="8dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:padding="8dp"
+                android:id="@+id/tv_cabin_utility"
+                android:textStyle="bold"/>
+
+        </LinearLayout>-->
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

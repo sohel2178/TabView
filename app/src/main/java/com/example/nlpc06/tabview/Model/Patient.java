@@ -16,6 +16,7 @@ public class Patient extends RealmObject {
     private String address;
     private int cabin_id;
     private String contact_number;
+    private String imagePath;
 
 
     public Patient() {
@@ -86,5 +87,13 @@ public class Patient extends RealmObject {
 
     public void setContact_number(String contact_number) {
         this.contact_number = contact_number;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

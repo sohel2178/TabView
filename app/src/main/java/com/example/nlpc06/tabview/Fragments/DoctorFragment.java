@@ -3,10 +3,9 @@ package com.example.nlpc06.tabview.Fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -17,8 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.nlpc06.tabview.DialogFragment.UploadImageDialog;
 import com.example.nlpc06.tabview.R;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -72,8 +71,8 @@ public class DoctorFragment extends Fragment implements OnClickListener {
         /*Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent,CAMERA_REQ);*/
 
-        UploadImageDialog uploadImageDialog = new UploadImageDialog();
-        uploadImageDialog.show(getFragmentManager(),"YYY");
+       /* CropImage.activity()
+                .start(getContext(), this);*/
 
     }
 
@@ -81,14 +80,16 @@ public class DoctorFragment extends Fragment implements OnClickListener {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(requestCode==CAMERA_REQ){
-            Log.d("HHH","Found");
-            Bitmap bitmap = data.getParcelableExtra("data");
+        /*if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == getActivity().RESULT_OK) {
+                Uri resultUri = result.getUri();
 
-            saveBitmap(bitmap);
-
-            ivImage.setImageBitmap(bitmap);
-        }
+                ivImage.setImageURI(resultUri);
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
+        }*/
     }
 
     private void saveBitmap(Bitmap bitmap){
@@ -120,4 +121,6 @@ public class DoctorFragment extends Fragment implements OnClickListener {
             e.printStackTrace();
         }
     }
+
+
 }

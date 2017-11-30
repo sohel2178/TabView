@@ -13,6 +13,7 @@ public class Cabin extends RealmObject {
     private String cabin_num;
     private int cabin_type;
     private int utility;
+    private boolean status;
 
 
     public Cabin() {
@@ -61,5 +62,13 @@ public class Cabin extends RealmObject {
 
     public void setUtility(int utility) {
         this.utility = utility;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
