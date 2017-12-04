@@ -593,6 +593,14 @@ public class MyUtils {
     }
 
 
+    public static Bitmap getBitmap(String path){
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        Bitmap bitmap = BitmapFactory.decodeFile(path,bmOptions);
+
+        return bitmap;
+    }
+
+
 
 
 

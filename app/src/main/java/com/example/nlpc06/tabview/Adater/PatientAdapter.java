@@ -3,6 +3,7 @@ package com.example.nlpc06.tabview.Adater;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v4.app.NavUtils;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.nlpc06.tabview.Listener.PatientClickListener;
 import com.example.nlpc06.tabview.Model.Cabin;
 import com.example.nlpc06.tabview.Model.Patient;
 import com.example.nlpc06.tabview.R;
@@ -28,6 +31,8 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientH
     private Context context;
     private List<Patient> patientList;
     private LayoutInflater inflater;
+
+    private PatientClickListener listener;
 
     public PatientAdapter(Context context) {
         this.context = context;
@@ -66,6 +71,11 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientH
     }
 
 
+    public void setPatientClickListener(PatientClickListener listener){
+        this.listener =listener;
+    }
+
+
     public void addPatient(Patient patient){
         patientList.add(patient);
         int position = patientList.indexOf(patient);
@@ -73,7 +83,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientH
     }
 
 
-    public class PatientHolder extends RecyclerView.ViewHolder{
+    public class PatientHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView tvPatientName,tvPatientPhoneNumber;
         ImageView ivImage;
 
@@ -82,6 +92,18 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientH
             tvPatientName = itemView.findViewById(R.id.tv_patient_name);
             tvPatientPhoneNumber = itemView.findViewById(R.id.patient_phone_number);
             ivImage = itemView.findViewById(R.id.iv_image);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            //Toast.makeText(context, "Item View Clicked "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
+
+            if(listener!= null){
+                listener.patientClick(patientList.get(getAdapterPosition()));
+            }
+
         }
     }
 

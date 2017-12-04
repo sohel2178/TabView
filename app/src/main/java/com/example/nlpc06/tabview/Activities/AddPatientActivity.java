@@ -94,12 +94,12 @@ public class AddPatientActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.btn_add:
-                String name = etName.getText().toString();
+                final String name = etName.getText().toString();
                 String ageStr = etAge.getText().toString();
                 String address = etAddress.getText().toString();
                 String contact = etContact.getText().toString();
 
-                int age =0;
+                int age=0;
 
                 if(!TextUtils.isEmpty(ageStr)){
                     age = Integer.parseInt(ageStr);
@@ -143,9 +143,23 @@ public class AddPatientActivity extends AppCompatActivity implements View.OnClic
                         //Get the Cabin from database by its Id
                         Cabin cabin = realm.where(Cabin.class).equalTo("id",cabinId).findFirst();
                         // change the Status
-                        cabin.setStatus(true);
+                        cabin.changeStatus();
                         // Update Cabin into database
                         realm.insertOrUpdate(cabin);
+
+                        Intent intent = new Intent();
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("patient",patient);
+                        intent.putExtras(bundle);
+                        /*intent.putExtra("id",patient.getId());
+                        intent.putExtra("name",patient.getName());
+                        intent.putExtra("age",patient.getAge());
+                        intent.putExtra("address",patient.getAddress());
+                        intent.putExtra("contact",patient.getContact_number());
+                        intent.putExtra("image",patient.getImagePath());
+                        intent.putExtra("cabin_id",patient.getCabin_id());*/
+
+                        setResult(RESULT_OK,intent);
 
                         AddPatientActivity.this.finish();
                     }

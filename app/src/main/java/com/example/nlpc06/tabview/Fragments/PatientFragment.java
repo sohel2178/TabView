@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.nlpc06.tabview.Activities.AddPatientActivity;
+import com.example.nlpc06.tabview.Activities.PatientDetailActivity;
 import com.example.nlpc06.tabview.Adater.PatientAdapter;
+import com.example.nlpc06.tabview.Listener.PatientClickListener;
 import com.example.nlpc06.tabview.Model.Patient;
 import com.example.nlpc06.tabview.R;
 
@@ -25,7 +27,7 @@ import io.realm.RealmResults;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PatientFragment extends Fragment implements View.OnClickListener{
+public class PatientFragment extends Fragment implements View.OnClickListener,PatientClickListener{
     private static final int REQ_CODE=1452;
 
 
@@ -45,6 +47,7 @@ public class PatientFragment extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
 
         adapter = new PatientAdapter(getContext());
+        adapter.setPatientClickListener(this);
 
         Realm realm = Realm.getDefaultInstance();
 
@@ -96,7 +99,33 @@ public class PatientFragment extends Fragment implements View.OnClickListener{
         if(requestCode==REQ_CODE){
             if(resultCode==getActivity().RESULT_OK){
 
+                Patient patient = (Patient) data.getSerializableExtra("patient");
+
+               /* int id = data.getIntExtra("id",-1);
+                int age = data.getIntExtra("age",-1);
+                int cabin_id = data.getIntExtra("cabin_id",-1);
+                String name = data.getStringExtra("name");
+                String address = data.getStringExtra("address");
+                String contact = data.getStringExtra("contact");
+                String image = data.getStringExtra("image");
+
+                Patient patient = new Patient(id,name,age,address,cabin_id,contact);
+                patient.setImagePath(image);*/
+
+                adapter.addPatient(patient);
+
+
             }
         }
+    }
+
+    @Override
+    public void patientClick(Patient patient) {
+        //Toast.makeText(getContext(), patient.getName(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(getContext(), PatientDetailActivity.class);
+        intent.putExtra("id",patient.getId());
+        startActivity(intent);
+
     }
 }

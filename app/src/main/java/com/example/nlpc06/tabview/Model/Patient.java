@@ -1,5 +1,7 @@
 package com.example.nlpc06.tabview.Model;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -7,7 +9,7 @@ import io.realm.annotations.PrimaryKey;
  * Created by NL PC 06 on 11/27/2017.
  */
 
-public class Patient extends RealmObject {
+public class Patient extends RealmObject implements Serializable {
 
     @PrimaryKey
     private int id;

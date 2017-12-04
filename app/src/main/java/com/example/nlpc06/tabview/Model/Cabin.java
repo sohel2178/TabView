@@ -71,4 +71,8 @@ public class Cabin extends RealmObject {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    public void changeStatus(){
+        status=!status;
+    }
 }
