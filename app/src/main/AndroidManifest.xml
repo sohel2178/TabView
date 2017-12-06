@@ -26,7 +26,8 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".Activities.AddCabin" />
         <activity android:name=".Activities.AddPatientActivity" />
-        <activity android:name=".Activities.PatientDetailActivity"></activity>
+        <activity android:name=".Activities.PatientDetailActivity" />
+        <activity android:name=".Activities.AddDoctorActivity"></activity>
     </application>
 
 </manifest>

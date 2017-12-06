@@ -14,7 +14,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.nlpc06.tabview.Adater.CabinSpinnerAdapter;
+import com.example.nlpc06.tabview.Adater.DoctorSpinnerAdapter;
 import com.example.nlpc06.tabview.Model.Cabin;
+import com.example.nlpc06.tabview.Model.Doctor;
 import com.example.nlpc06.tabview.Model.Patient;
 import com.example.nlpc06.tabview.R;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -28,11 +30,12 @@ import io.realm.RealmResults;
 public class AddPatientActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etName,etAge,etAddress,etContact;
-    private Spinner spCabin;
+    private Spinner spCabin,spDoctor;
     private Button btnAdd,btnSelect;
     private ImageView ivImage;
 
     CabinSpinnerAdapter adapter;
+    DoctorSpinnerAdapter docAdapter;
 
     String path ="";
 
@@ -44,6 +47,7 @@ public class AddPatientActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_add_patient);
 
         adapter = new CabinSpinnerAdapter(getApplicationContext());
+        docAdapter = new DoctorSpinnerAdapter(getApplicationContext());
 
         initView();
 
@@ -57,9 +61,14 @@ public class AddPatientActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void execute(Realm realm) {
                 RealmResults<Cabin> cabinList = realm.where(Cabin.class).equalTo("status",false).findAll();
+                RealmResults<Doctor> doctors = realm.where(Doctor.class).findAll();
 
                 for (Cabin x:cabinList){
                     adapter.addCabin(x);
+                }
+
+                for(Doctor y: doctors){
+                    docAdapter.addDoctor(y);
                 }
             }
         });
@@ -73,7 +82,10 @@ public class AddPatientActivity extends AppCompatActivity implements View.OnClic
         ivImage = (ImageView) findViewById(R.id.image);
 
         spCabin = (Spinner) findViewById(R.id.sp_select_cabin);
+        spDoctor = (Spinner) findViewById(R.id.sp_select_doctor);
+
         spCabin.setAdapter(adapter);
+        spDoctor.setAdapter(docAdapter);
 
         btnAdd = (Button) findViewById(R.id.btn_add);
         btnSelect = (Button) findViewById(R.id.btn_select);
@@ -110,7 +122,11 @@ public class AddPatientActivity extends AppCompatActivity implements View.OnClic
 
                 final int cabinId =(int) adapter.getItemId(pos);
 
-                final Patient patient = new Patient(name,age,address,cabinId,contact);
+                int posDoc = spDoctor.getSelectedItemPosition();
+
+                int docId =(int) docAdapter.getItemId(posDoc);
+
+                final Patient patient = new Patient(name,age,address,cabinId,docId,contact);
 
                 if(path!=null && !path.equals("") ){
                     Toast.makeText(this, path, Toast.LENGTH_SHORT).show();

@@ -13,6 +13,7 @@ import com.example.nlpc06.tabview.Adater.HospitalAdapter;
 import com.example.nlpc06.tabview.Fragments.CabinFragment;
 import com.example.nlpc06.tabview.Fragments.DoctorFragment;
 import com.example.nlpc06.tabview.Fragments.PatientFragment;
+import com.example.nlpc06.tabview.Fragments.ReleaseFragment;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new DoctorFragment(),"Doctor");
         adapter.addFragment(new PatientFragment(),"Patient");
         adapter.addFragment(new CabinFragment(),"Cabin");
+        adapter.addFragment(new ReleaseFragment(),"Release");
 
         viewPager.setAdapter(adapter);
 

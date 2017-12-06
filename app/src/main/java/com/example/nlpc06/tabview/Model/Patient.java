@@ -17,6 +17,7 @@ public class Patient extends RealmObject implements Serializable {
     private int age;
     private String address;
     private int cabin_id;
+    private int doctor_id;
     private String contact_number;
     private String imagePath;
 
@@ -35,11 +36,32 @@ public class Patient extends RealmObject implements Serializable {
     }
 
 
+
+
     public Patient(String name, int age, String address, int cabin_id, String contact_number) {
         this.name = name;
         this.age = age;
         this.address = address;
         this.cabin_id = cabin_id;
+        this.contact_number = contact_number;
+    }
+
+    public Patient(String name, int age, String address, int cabin_id, int doctor_id, String contact_number, String imagePath) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.cabin_id = cabin_id;
+        this.doctor_id = doctor_id;
+        this.contact_number = contact_number;
+        this.imagePath = imagePath;
+    }
+
+    public Patient(String name, int age, String address, int cabin_id, int doctor_id, String contact_number) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.cabin_id = cabin_id;
+        this.doctor_id = doctor_id;
         this.contact_number = contact_number;
     }
 
@@ -97,5 +119,13 @@ public class Patient extends RealmObject implements Serializable {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public int getDoctor_id() {
+        return doctor_id;
+    }
+
+    public void setDoctor_id(int doctor_id) {
+        this.doctor_id = doctor_id;
     }
 }
