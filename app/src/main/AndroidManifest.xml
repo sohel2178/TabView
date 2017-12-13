@@ -27,7 +27,8 @@
         <activity android:name=".Activities.AddCabin" />
         <activity android:name=".Activities.AddPatientActivity" />
         <activity android:name=".Activities.PatientDetailActivity" />
-        <activity android:name=".Activities.AddDoctorActivity"></activity>
+        <activity android:name=".Activities.AddDoctorActivity" />
+        <activity android:name=".Activities.DoctorDetailActivity"></activity>
     </application>
 
 </manifest>

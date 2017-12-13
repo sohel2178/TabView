@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.nlpc06.tabview.Activities.AddDoctorActivity;
+import com.example.nlpc06.tabview.Activities.DoctorDetailActivity;
 import com.example.nlpc06.tabview.Adater.DoctorAdapter;
 import com.example.nlpc06.tabview.Listener.DoctorClickListener;
 import com.example.nlpc06.tabview.Model.Doctor;
@@ -163,9 +164,9 @@ public class DoctorFragment extends Fragment implements OnClickListener,DoctorCl
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                RealmResults<Patient> patList = realm.where(Patient.class).equalTo("doctor_id",doctor.getId()).findAll();
-
-                Toast.makeText(getContext(), patList.size()+"", Toast.LENGTH_SHORT).show();
+               Intent intent=new Intent(getContext(),DoctorDetailActivity.class);
+                intent.putExtra("id",doctor.getId());
+                startActivity(intent);
             }
         });
     }

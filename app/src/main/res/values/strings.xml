@@ -8,6 +8,7 @@
     <string name="camera">Camera</string>
     <string name="select_cabin">Select Cabin</string>
     <string name="select_doctor">Select Doctor</string>
+    <string name="release">Release</string>
     <string-array name="name_arrry">
         <item>Single</item>
         <item>Double</item>

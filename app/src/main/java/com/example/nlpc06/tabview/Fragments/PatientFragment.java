@@ -29,6 +29,7 @@ import io.realm.RealmResults;
  */
 public class PatientFragment extends Fragment implements View.OnClickListener,PatientClickListener{
     private static final int REQ_CODE=1452;
+    private static final int RELEASE_CODE=1453;
 
 
     private FloatingActionButton fabAdd;
@@ -117,6 +118,18 @@ public class PatientFragment extends Fragment implements View.OnClickListener,Pa
 
             }
         }
+
+        if(requestCode==RELEASE_CODE && resultCode==getActivity().RESULT_OK){
+
+            int id = data.getIntExtra("patId",-1);
+
+            if(id!=-1){
+                adapter.removePatient(id);
+            }
+
+
+
+        }
     }
 
     @Override
@@ -125,7 +138,7 @@ public class PatientFragment extends Fragment implements View.OnClickListener,Pa
 
         Intent intent = new Intent(getContext(), PatientDetailActivity.class);
         intent.putExtra("id",patient.getId());
-        startActivity(intent);
+        startActivityForResult(intent,RELEASE_CODE);
 
     }
 }

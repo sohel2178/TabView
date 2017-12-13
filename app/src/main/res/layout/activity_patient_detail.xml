@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/container"
         android:background="@drawable/rect_light"
         android:layout_below="@+id/image">
 
@@ -166,9 +167,16 @@
 
         </LinearLayout>
 
-
-
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/release"
+        android:id="@+id/btn_release"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/container"
+        />
 
 
 
